@@ -1,6 +1,7 @@
+
 import React from 'react';
-import { TeamMember } from '../types';
-import TeamMemberCard from './TeamMemberCard';
+import { TeamMember } from '../types.ts';
+import TeamMemberCard from './TeamMemberCard.tsx';
 
 const teamMembers: TeamMember[] = [
   {
