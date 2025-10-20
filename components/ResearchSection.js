@@ -1,11 +1,11 @@
 
 import React from 'react';
-import AiIcon from './icons/AiIcon.tsx';
-import QuantumIcon from './icons/QuantumIcon.tsx';
-import TelecomIcon from './icons/TelecomIcon.tsx';
-import MechanicalIcon from './icons/MechanicalIcon.tsx';
-import HealthcareIcon from './icons/HealthcareIcon.tsx';
-import ComputerScienceIcon from './icons/ComputerScienceIcon.tsx';
+import AiIcon from './icons/AiIcon.js';
+import QuantumIcon from './icons/QuantumIcon.js';
+import TelecomIcon from './icons/TelecomIcon.js';
+import MechanicalIcon from './icons/MechanicalIcon.js';
+import HealthcareIcon from './icons/HealthcareIcon.js';
+import ComputerScienceIcon from './icons/ComputerScienceIcon.js';
 
 const WavyBackground = () => (
   <svg

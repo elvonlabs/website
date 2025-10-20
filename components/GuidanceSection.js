@@ -1,6 +1,6 @@
 
 import React from 'react';
-import BookIcon from './icons/BookIcon.tsx';
+import BookIcon from './icons/BookIcon.js';
 
 const GuidanceSection: React.FC = () => {
   return (

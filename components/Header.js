@@ -1,6 +1,6 @@
 
 import React from 'react';
-import CircuitCubeIcon from './icons/CircuitCubeIcon.tsx';
+import CircuitCubeIcon from './icons/CircuitCubeIcon.js';
 
 const Header: React.FC = () => {
   const navItems = ['Research', 'Advisory', 'Publications', 'Contact'];
