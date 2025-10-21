@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const publications = [
@@ -38,7 +37,7 @@ const stats = [
   { label: 'i10-index', value: '10' },
 ];
 
-const PublicationsSection = () => {
+const PublicationsSection: React.FC = () => {
   return (
     <section id="publications" className="py-24 bg-slate-900 scroll-mt-20">
       <div className="container mx-auto px-6">

@@ -1,6 +1,7 @@
+
 import React from 'react';
 
-const CircuitCubeIcon: React.FC<{ className?: string }> = ({ className }) => (
+const CircuitCubeIcon = ({ className }) => (
   <svg
     className={className}
     viewBox="0 0 24 24"

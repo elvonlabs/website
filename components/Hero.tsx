@@ -1,8 +1,7 @@
-
 import React from 'react';
 
-const Hero = () => {
-  const handleNavClick = (e) => {
+const Hero: React.FC = () => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const targetId = e.currentTarget.getAttribute('href')?.substring(1);
     if (targetId) {

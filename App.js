@@ -7,7 +7,7 @@ import TeamSection from './components/TeamSection.js';
 import PublicationsSection from './components/PublicationsSection.js';
 import Footer from './components/Footer.js';
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <div className="bg-slate-900 min-h-screen">
       <Header />

@@ -1,8 +1,9 @@
 
 import React from 'react';
-import TeamMemberCard from './TeamMemberCard.js';
+import { TeamMember } from '../types.ts';
+import TeamMemberCard from './TeamMemberCard.tsx';
 
-const teamMembers = [
+const teamMembers: TeamMember[] = [
   {
     id: 1,
     name: 'Engineering Lead',
@@ -19,7 +20,7 @@ const teamMembers = [
   },
 ];
 
-const TeamSection = () => {
+const TeamSection: React.FC = () => {
   return (
     <section id="advisory" className="py-20 bg-gray-900/50 scroll-mt-20">
       <div className="container mx-auto px-6">

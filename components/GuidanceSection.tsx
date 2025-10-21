@@ -1,8 +1,8 @@
 
 import React from 'react';
-import BookIcon from './icons/BookIcon.js';
+import BookIcon from './icons/BookIcon.tsx';
 
-const GuidanceSection = () => {
+const GuidanceSection: React.FC = () => {
   return (
     <section id="guidance" className="py-24 bg-gray-900/50 scroll-mt-20">
       <div className="container mx-auto px-6">

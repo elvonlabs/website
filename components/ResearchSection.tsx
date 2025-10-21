@@ -1,11 +1,11 @@
 
 import React from 'react';
-import AiIcon from './icons/AiIcon.js';
-import QuantumIcon from './icons/QuantumIcon.js';
-import TelecomIcon from './icons/TelecomIcon.js';
-import MechanicalIcon from './icons/MechanicalIcon.js';
-import HealthcareIcon from './icons/HealthcareIcon.js';
-import ComputerScienceIcon from './icons/ComputerScienceIcon.js';
+import AiIcon from './icons/AiIcon.tsx';
+import QuantumIcon from './icons/QuantumIcon.tsx';
+import TelecomIcon from './icons/TelecomIcon.tsx';
+import MechanicalIcon from './icons/MechanicalIcon.tsx';
+import HealthcareIcon from './icons/HealthcareIcon.tsx';
+import ComputerScienceIcon from './icons/ComputerScienceIcon.tsx';
 
 const WavyBackground = () => (
   <svg
@@ -38,13 +38,13 @@ const WavyBackground = () => (
   </svg>
 );
 
-const MainItem = ({ title }) => (
+const MainItem: React.FC<{ title: string }> = ({ title }) => (
   <div className="bg-white/95 text-slate-800 rounded-full py-4 px-8 w-72 md:w-80 text-center shadow-lg backdrop-blur-sm border border-white/20">
     <h3 className="text-lg font-bold tracking-wider uppercase">{title}</h3>
   </div>
 );
 
-const SatelliteItem = ({ icon: Icon, title, description }) => (
+const SatelliteItem: React.FC<{ icon: React.ComponentType<{ className?: string }>, title: string, description: string }> = ({ icon: Icon, title, description }) => (
   <div className="flex items-center gap-4 w-72 md:w-auto">
     <div className="bg-white/90 p-4 rounded-full shadow-md border border-white/20">
       <Icon className="w-8 h-8 text-slate-800" />
@@ -57,7 +57,7 @@ const SatelliteItem = ({ icon: Icon, title, description }) => (
 );
 
 
-const ResearchSection = () => {
+const ResearchSection: React.FC = () => {
   return (
     <section id="research" className="relative py-24 bg-slate-900 overflow-hidden scroll-mt-20">
       <WavyBackground />

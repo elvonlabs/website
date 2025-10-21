@@ -1,7 +1,14 @@
 
 import React from 'react';
 
-const TeamMemberCard = ({ name, title, imageUrl, bio }) => {
+interface TeamMemberCardProps {
+  name: string;
+  title: string;
+  imageUrl: string;
+  bio: string;
+}
+
+const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ name, title, imageUrl, bio }) => {
   return (
     <div className="bg-gray-900 rounded-lg overflow-hidden text-center group">
       <div className="relative">

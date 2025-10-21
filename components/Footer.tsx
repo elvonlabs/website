@@ -1,8 +1,8 @@
 
 import React from 'react';
-import CircuitCubeIcon from './icons/CircuitCubeIcon.js';
+import CircuitCubeIcon from './icons/CircuitCubeIcon.tsx';
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <footer id="contact" className="bg-slate-900 border-t border-slate-800 py-12 scroll-mt-20">
       <div className="container mx-auto px-6 text-center text-gray-500">

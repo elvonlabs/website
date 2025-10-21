@@ -1,11 +1,11 @@
 
 import React from 'react';
-import CircuitCubeIcon from './icons/CircuitCubeIcon.js';
+import CircuitCubeIcon from './icons/CircuitCubeIcon.tsx';
 
-const Header = () => {
+const Header: React.FC = () => {
   const navItems = ['Research', 'Advisory', 'Publications', 'Contact'];
 
-  const handleNavClick = (e) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const targetId = e.currentTarget.getAttribute('href')?.substring(1);
     if (targetId) {
