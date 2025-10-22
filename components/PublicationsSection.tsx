@@ -86,9 +86,9 @@ const PublicationsSection: React.FC = () => {
             <p className="text-gray-400 mb-8">
                Accelerate your career with consistent, expert mentorship tailored to your research goals.
             </p>
-            <a href="mailto:hello@elvonlabs.com" className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 w-full">
+            <button onClick={() => window.location.href = 'mailto:hello@elvonlabs.com?subject=Weekly Research Mentorship Inquiry'} className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 w-full">
               Start Your Journey
-            </a>
+            </button>
           </div>
         </div>
         

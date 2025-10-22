@@ -1,6 +1,5 @@
-
 import React from 'react';
-import BookIcon from './icons/BookIcon.tsx';
+import BookIcon from './icons/BookIcon';
 
 const GuidanceSection: React.FC = () => {
   return (
@@ -45,7 +44,7 @@ const GuidanceSection: React.FC = () => {
             <p className="text-gray-400 mb-8 max-w-sm">
               Get expert guidance tailored to your specific research goals and unlock your potential as a published author.
             </p>
-            <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 w-full">
+            <button onClick={() => window.location.href = 'mailto:hello@elvonlabs.com?subject=Booking a Session'} className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 w-full">
               Book a Session
             </button>
           </div>
