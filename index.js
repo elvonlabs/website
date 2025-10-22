@@ -397,9 +397,11 @@ const PublicationsSection = () => {
             <p className="text-gray-400 mb-8">
                Accelerate your career with consistent, expert mentorship tailored to your research goals.
             </p>
-            <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 w-full">
+            <a
+              href="mailto:hello@elvonlabs.com?subject=Booking a Guidance Session"
+              className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 w-full text-center block">
               Start Your Journey
-            </button>
+            </a>
           </div>
         </div>
       </div>
