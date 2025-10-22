@@ -2,7 +2,13 @@ import React from 'react';
 import CircuitCubeIcon from './icons/CircuitCubeIcon';
 
 const Header: React.FC = () => {
-  const navItems = ['Research', 'Mentorship', 'Publications', 'Contact'];
+  const navItems = [
+    { label: 'Research', href: '#research' },
+    { label: 'Advisory', href: '#advisory' },
+    { label: 'Mentorship', href: '#mentorship' },
+    { label: 'Publications', href: '#publications' },
+    { label: 'Contact', href: '#contact' },
+  ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -27,12 +33,12 @@ const Header: React.FC = () => {
         <nav className="hidden md:flex items-center space-x-8">
           {navItems.map((item) => (
             <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
+              key={item.label}
+              href={item.href}
               onClick={handleNavClick}
               className="text-gray-300 hover:text-blue-400 transition-colors duration-300 font-medium"
             >
-              {item}
+              {item.label}
             </a>
           ))}
         </nav>
