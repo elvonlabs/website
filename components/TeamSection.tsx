@@ -1,7 +1,6 @@
-
 import React from 'react';
-import { TeamMember } from '../types.ts';
-import TeamMemberCard from './TeamMemberCard.tsx';
+import { TeamMember } from '../types';
+import TeamMemberCard from './TeamMemberCard';
 
 const teamMembers: TeamMember[] = [
   {
@@ -22,7 +21,7 @@ const teamMembers: TeamMember[] = [
 
 const TeamSection: React.FC = () => {
   return (
-    <section id="advisory" className="py-20 bg-gray-900/50 scroll-mt-20">
+    <section id="team" className="py-20 bg-gray-900/50 scroll-mt-20">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">

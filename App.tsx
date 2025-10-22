@@ -1,11 +1,11 @@
-
 import React from 'react';
-import Header from './components/Header.tsx';
-import Hero from './components/Hero.tsx';
-import ResearchSection from './components/ResearchSection.tsx';
-import TeamSection from './components/TeamSection.tsx';
-import PublicationsSection from './components/PublicationsSection.tsx';
-import Footer from './components/Footer.tsx';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import ResearchSection from './components/ResearchSection';
+import TeamSection from './components/TeamSection';
+import MentorshipSection from './components/MentorshipSection';
+import PublicationsSection from './components/PublicationsSection';
+import Footer from './components/Footer';
 
 const App: React.FC = () => {
   return (
@@ -15,6 +15,7 @@ const App: React.FC = () => {
         <Hero />
         <ResearchSection />
         <TeamSection />
+        <MentorshipSection />
         <PublicationsSection />
       </main>
       <Footer />
