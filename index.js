@@ -282,28 +282,28 @@ const TeamSection = () => {
 const publications = [
   {
     title: 'DeepSlice: A deep learning approach towards an efficient and reliable network slicing in 5G networks',
-    authors: 'A Thantharate, R Paropkari, V Walunj, C Beard',
+    authors: 'A TXXXX, R PXXXX, V WXXXX, C BXXXX',
     venue: '2019 IEEE 10th Annual Ubiquitous Computing, Electronics & Mobile…',
     citations: 235,
     year: 2019,
   },
   {
     title: 'Secure5G: A deep learning framework towards a secure network slicing in 5G and beyond',
-    authors: 'A Thantharate, R Paropkari, V Walunj, C Beard, P Kankariya',
+    authors: 'A TXXXX, R PXXXX, V WXXXX, C BXXXX',
     venue: '2020 10th annual computing and communication workshop and conference (CCWC…',
     citations: 141,
     year: 2020,
   },
   {
     title: 'A fine-grained data set and analysis of tangling in bug fixing commits',
-    authors: 'S Herbold, A Trautsch, B Ledel, A Aghamohammadi, TA Ghaleb, ...',
+    authors: 'S HXXXX, A TXXXX, B LXXXX, A AXXXX, ...',
     venue: 'Empirical Software Engineering 27 (6), 125',
     citations: 61,
     year: 2022,
   },
   {
     title: 'Automated end-to-end management of the modeling lifecycle in deep learning',
-    authors: 'G Gharibi, V Walunj, R Nekadi, R Marri, Y Lee',
+    authors: 'G GXXXX, V WXXXX, R NXXXX, R MXXXX, Y LXXXX',
     venue: 'Empirical Software Engineering 26 (2), 17',
     citations: 44,
     year: 2021,
