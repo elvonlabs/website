@@ -496,7 +496,7 @@ const JOIN_CONTACT_EMAIL = 'hello@elvonlabs.com';
 
 const JOIN_INTEREST_AREAS = [
   'Artificial Intelligence',
-  'Computational Healthcare',
+  'Healthcare',
   'Telecommunications',
   'Quantum Computing',
   'Foundational CS',
@@ -590,7 +590,7 @@ const JoinSection = () => {
             We're looking for career researchers as well as industry
             professionals who want to bring real-world experience into
             research — no formal research background required. Across AI,
-            Computational Healthcare, Telecommunications, Quantum Computing,
+            Healthcare, Telecommunications, Quantum Computing,
             and Foundational CS, your day-to-day expertise is often the
             fastest bridge into a research question worth pursuing. Tell us
             a bit about you.
