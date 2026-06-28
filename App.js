@@ -3,6 +3,7 @@ import React from 'react';
 import Header from './components/Header.js';
 import Hero from './components/Hero.js';
 import ResearchSection from './components/ResearchSection.js';
+import ResearchTracksSection from './components/ResearchTracksSection.js';
 import TeamSection from './components/TeamSection.js';
 import PublicationsSection from './components/PublicationsSection.js';
 import JoinSection from './components/JoinSection.js';
@@ -15,6 +16,7 @@ const App = () => {
       <main>
         <Hero />
         <ResearchSection />
+        <ResearchTracksSection />
         <TeamSection />
         <PublicationsSection />
         <JoinSection />
