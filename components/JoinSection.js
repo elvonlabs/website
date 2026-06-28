@@ -5,7 +5,8 @@ import React, { useState } from 'react';
 // structured submissions in a dashboard instead of relying on the mailto
 // fallback below. Leave blank to keep the zero-setup mailto behavior used
 // elsewhere on this site (see PublicationsSection's "Start Your Journey").
-const FORM_ENDPOINT = '';
+const FORM_ENDPOINT = 'https://api.web3forms.com/submit';
+const ACCESS_KEY = '9ad87ce9-4376-48d6-9870-ef26d557d078';
 const CONTACT_EMAIL = 'hello@elvonlabs.com';
 
 const INTEREST_AREAS = [
@@ -113,6 +114,8 @@ const JoinSection = () => {
           onSubmit={handleSubmit}
           className="max-w-2xl mx-auto bg-slate-800/50 border border-slate-700 rounded-lg p-8 space-y-6"
         >
+          <input type="hidden" name="access_key" value={ACCESS_KEY} />
+          <input type="hidden" name="subject" value="New interest submission - Elvon Labs" />
           <div className="grid sm:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-2">
