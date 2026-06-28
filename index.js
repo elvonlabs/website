@@ -122,7 +122,7 @@ const Hero = () => {
           Pioneering the Future of intelligence
         </h2>
         <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-          Advancing the future of intelligence through foundational research in AI, quantum computing, and next-generation systems.
+          Advancing the future of intelligence through foundational research in AI, quantum computing, and next-generation systems — led by career researchers, and open to industry professionals ready to turn real-world expertise into research.
         </p>
         <a
           href="#research"
@@ -587,9 +587,13 @@ const JoinSection = () => {
             Join the Research
           </h2>
           <p className="text-lg text-gray-400">
-            We're looking for researchers, engineers, and collaborators across
-            AI, Quantum Computing, Computational Healthcare, and
-            Telecommunications. Tell us a bit about you.
+            We're looking for career researchers as well as industry
+            professionals who want to bring real-world experience into
+            research — no formal research background required. Across AI,
+            Quantum Computing, Computational Healthcare, and
+            Telecommunications, your day-to-day expertise is often the
+            fastest bridge into a research question worth pursuing. Tell us
+            a bit about you.
           </p>
         </div>
 
@@ -690,6 +694,7 @@ const JoinSection = () => {
                 className="w-full rounded-lg bg-slate-900/70 border border-slate-700 text-white px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-400"
               >
                 <option>Research collaborator</option>
+                <option>Industry contributor (alongside my job)</option>
                 <option>Advisor</option>
                 <option>Just following along</option>
                 <option>Other</option>

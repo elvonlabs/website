@@ -25,7 +25,7 @@ const Hero = () => {
           Pioneering the Future of intelligence
         </h2>
         <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-          Advancing the future of intelligence through foundational research in AI, quantum computing, and next-generation systems.
+          Advancing the future of intelligence through foundational research in AI, quantum computing, and next-generation systems — led by career researchers, and open to industry professionals ready to turn real-world expertise into research.
         </p>
         <a
           href="#research"
