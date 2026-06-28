@@ -5,6 +5,7 @@ import Hero from './components/Hero.js';
 import ResearchSection from './components/ResearchSection.js';
 import TeamSection from './components/TeamSection.js';
 import PublicationsSection from './components/PublicationsSection.js';
+import JoinSection from './components/JoinSection.js';
 import Footer from './components/Footer.js';
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
         <ResearchSection />
         <TeamSection />
         <PublicationsSection />
+        <JoinSection />
       </main>
       <Footer />
     </div>

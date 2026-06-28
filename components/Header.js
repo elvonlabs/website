@@ -3,7 +3,7 @@ import React from 'react';
 import CircuitCubeIcon from './icons/CircuitCubeIcon.js';
 
 const Header = () => {
-  const navItems = ['Research', 'Advisory', 'Publications', 'Contact'];
+  const navItems = ['Research', 'Advisory', 'Publications', 'Join', 'Contact'];
 
   const handleNavClick = (e) => {
     e.preventDefault();
