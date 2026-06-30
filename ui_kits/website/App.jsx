@@ -255,7 +255,7 @@ function Founder() {
           <div style={{ fontFamily: SANS, fontSize: 13, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--coral-600)', marginBottom: 14 }}>Your mentor</div>
           <h2 style={{ fontFamily: DISP, fontSize: 38, fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--ink-900)', margin: '0 0 18px', lineHeight: 1.12 }}>Vijay Walunj, PhD</h2>
           <p style={{ fontFamily: SANS, fontSize: 17, lineHeight: 1.65, color: 'var(--text-body)', margin: '0 0 16px' }}>
-            Researcher in AI, software engineering, and healthcare; published author and engineering leader. Vijay has mentored industry professionals to co-author real, peer-reviewed papers — and Elvon Labs brings that same standard to students.
+            Researcher in AI, software engineering, and healthcare; published author and engineering leader. Vijay has mentored industry professionals to co-author real, peer-reviewed papers — and Elvon Labs brings that same standard to future innovators.
           </p>
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
             <Tag variant="indigo">Senior IEEE member</Tag>

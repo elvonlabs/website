@@ -1580,7 +1580,7 @@ function Founder() {
       color: 'var(--text-body)',
       margin: '0 0 16px'
     }
-  }, "Researcher in AI, software engineering, and healthcare; published author and engineering leader. Vijay has mentored industry professionals to co-author real, peer-reviewed papers \u2014 and Elvon Labs brings that same standard to students."), /*#__PURE__*/React.createElement("div", {
+  }, "Researcher in AI, software engineering, and healthcare; published author and engineering leader. Vijay has mentored industry professionals to co-author real, peer-reviewed papers \u2014 and Elvon Labs brings that same standard to future innovators."), /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       gap: 8,
