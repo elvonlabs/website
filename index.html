@@ -1,38 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Elvon Labs</title>
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        font-family: 'Inter', sans-serif;
-        background-color: #0F172A; /* A dark navy blue similar to the image */
-      }
-    </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0"
-  }
-}
-</script>
-  <!-- Add Babel to transpile JSX in the browser -->
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Elvon Labs — Research mentorship in AI &amp; healthcare</title>
+<meta name="description" content="Elvon Labs mentors students and working professionals one-on-one through a genuine AI or healthcare research project." />
+<link rel="icon" type="image/svg+xml" href="./assets/logo/elvon-mark.svg" />
+<link rel="stylesheet" href="./styles.css" />
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--surface-canvas); font-family: var(--font-sans); }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
+<script src="./_ds_bundle.js"></script>
 </head>
-  <body class="bg-slate-900 text-gray-200 antialiased">
-    <div id="root"></div>
-    <!-- Change script type to text/babel and fix path for GitHub Pages -->
-    <script type="text/babel" data-type="module" src="./index.js"></script>
+<body>
+<div id="root"></div>
+<script type="text/babel" src="./index.js" data-presets="react"></script>
 </body>
 </html>

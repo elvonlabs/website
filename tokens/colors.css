@@ -1,0 +1,96 @@
+/* ============================================================
+   ELVON LABS — COLOR TOKENS  (warm / light)
+   A friendly, optimistic, student-facing palette: a warm cream
+   canvas, a confident indigo primary (carrying Elvon's blue DNA),
+   and warm coral + sun accents. Base ramps first, then semantic
+   aliases the components and UI kits consume.
+   ============================================================ */
+
+:root {
+  /* ---- Cream neutrals (warm paper) ---- */
+  --cream-50: #fcf9f4;  /* primary canvas */
+  --cream-100: #f6f1e8; /* alt band / sunken field */
+  --cream-200: #ece3d4; /* hairline border on cream */
+  --cream-300: #ddd2bf; /* stronger border */
+
+  /* ---- Ink (warm near-black typography) ---- */
+  --ink-900: #201b2b; /* headings */
+  --ink-700: #453f57; /* body */
+  --ink-500: #726c84; /* muted */
+  --ink-300: #a59fb4; /* faint / placeholder */
+
+  /* ---- Indigo (primary) ---- */
+  --indigo-700: #362aa6; /* press / hover */
+  --indigo-600: #4b3ddb; /* primary fill */
+  --indigo-500: #6353e8; /* bright */
+  --indigo-300: #b3a9f4; /* on-dark accent */
+  --indigo-100: #ece8fc; /* soft fill / chip */
+
+  /* ---- Coral (secondary) ---- */
+  --coral-600: #f0533c;
+  --coral-500: #ff6b57; /* secondary fill */
+  --coral-300: #ffa091;
+  --coral-100: #ffe6e0; /* soft fill / chip */
+
+  /* ---- Sun (tertiary / highlight) ---- */
+  --sun-400: #ffb23e;
+  --sun-200: #ffd58c;
+  --sun-100: #fff0d6; /* soft band */
+
+  /* ---- Mint (support / success) ---- */
+  --mint-500: #2fb592;
+  --mint-100: #dcf4ec;
+
+  /* ---- Neutrals ---- */
+  --white: #ffffff;
+  --black: #000000;
+
+  /* ============================================================
+     SEMANTIC ALIASES
+     ============================================================ */
+
+  /* Surfaces */
+  --surface-canvas: var(--cream-50);     /* page background */
+  --surface-card: var(--white);          /* standard card */
+  --surface-sunken: var(--cream-100);    /* inputs, inset wells */
+  --surface-ink: var(--ink-900);         /* inverted dark panels / footer */
+
+  /* Pastel section bands — rotate for rhythm */
+  --band-lavender: var(--indigo-100);
+  --band-peach: var(--coral-100);
+  --band-butter: var(--sun-100);
+  --band-mint: var(--mint-100);
+
+  /* Borders */
+  --border-default: var(--cream-200);
+  --border-strong: var(--cream-300);
+  --border-accent: var(--indigo-300);
+
+  /* Text */
+  --text-strong: var(--ink-900);
+  --text-body: var(--ink-700);
+  --text-muted: var(--ink-500);
+  --text-faint: var(--ink-300);
+  --text-accent: var(--indigo-600);
+  --text-on-accent: var(--white);
+  --text-on-ink: #efe9f7;     /* body text on the dark ink panel */
+
+  /* Accent system */
+  --accent: var(--indigo-600);
+  --accent-hover: var(--indigo-700);
+  --accent-bright: var(--indigo-500);
+  --accent-soft: var(--indigo-100);
+  --accent-2: var(--coral-500);          /* warm secondary CTA / highlights */
+  --accent-2-soft: var(--coral-100);
+  --accent-3: var(--sun-400);            /* playful tertiary */
+
+  /* Feedback */
+  --danger: #e23d3d;
+  --success: var(--mint-500);
+  --warning: var(--sun-400);
+
+  /* Glow (subtle warm blobs for hero atmosphere) */
+  --glow-indigo: rgba(99, 83, 232, 0.18);
+  --glow-coral: rgba(255, 107, 87, 0.16);
+  --glow-sun: rgba(255, 178, 62, 0.20);
+}

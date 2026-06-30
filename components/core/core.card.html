@@ -1,0 +1,53 @@
+<!-- @dsCard group="Components" viewport="700x320" name="Core" subtitle="Buttons, tags, badges, cards, stats, logo" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  body { margin: 0; font-family: var(--font-sans); background: var(--surface-canvas); padding: 24px; }
+  .stack { display: flex; flex-direction: column; gap: 20px; }
+  .row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+  const { Button, Tag, Badge, Card, StatCard, Logo, Icon } = window.ElvonLabsDesignSystem_d7be89;
+  function Demo() {
+    return (
+      <div className="stack">
+        <div className="row">
+          <Button variant="primary">Apply now</Button>
+          <Button variant="secondary">Foundations Pod</Button>
+          <Button variant="soft">Learn more</Button>
+          <Button variant="ghost">Curriculum</Button>
+          <Button variant="primary" size="sm">Start <Icon name="arrow" size={16} /></Button>
+        </div>
+        <div className="row">
+          <Tag>AI</Tag>
+          <Tag variant="coral">Healthcare</Tag>
+          <Tag variant="mint">Foundational CS</Tag>
+          <Tag variant="sun">14 weeks</Tag>
+          <Badge tone="coral">Most popular</Badge>
+        </div>
+        <div className="row" style={{ alignItems: 'stretch' }}>
+          <StatCard value="634" label="Citations" tone="lavender" />
+          <StatCard value="14" label="Weeks" tone="peach" />
+          <Card hover={false} style={{ flex: 1, minWidth: 240 }}>
+            <div style={{ fontFamily: 'var(--font-display)', color: 'var(--text-strong)', fontWeight: 700, fontSize: 19 }}>Core Research Mentorship</div>
+            <div style={{ color: 'var(--text-muted)', fontSize: 14, marginTop: 4 }}>14 weeks · 1:1 · from $3,500</div>
+          </Card>
+        </div>
+        <div className="row"><Logo size={22} /></div>
+      </div>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script>
+</body>
+</html>

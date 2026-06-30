@@ -1,0 +1,23 @@
+<!-- @dsCard group="Colors" viewport="700x150" name="Surfaces" subtitle="Warm paper surfaces from canvas to card" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; font-family: var(--font-sans); background: var(--surface-canvas); padding: 20px; }
+  .row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .sw { border-radius: var(--radius-md); border: 1px solid var(--border-default); height: 78px; display: flex; flex-direction: column; justify-content: flex-end; padding: 10px; box-shadow: var(--shadow-sm); }
+  .name { font-size: 12px; font-weight: 600; color: var(--text-strong); }
+  .val { font-size: 10px; color: var(--text-faint); font-family: var(--font-mono); }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="sw" style="background: var(--surface-canvas);"><span class="name">canvas</span><span class="val">#fcf9f4</span></div>
+    <div class="sw" style="background: var(--surface-card);"><span class="name">card</span><span class="val">#ffffff</span></div>
+    <div class="sw" style="background: var(--surface-sunken);"><span class="name">sunken</span><span class="val">#f6f1e8</span></div>
+    <div class="sw" style="background: var(--surface-ink);"><span class="name" style="color:var(--text-on-ink);">ink</span><span class="val" style="color:#9a93a8;">#201b2b</span></div>
+  </div>
+</body>
+</html>

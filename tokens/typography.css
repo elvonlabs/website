@@ -1,0 +1,58 @@
+/* ============================================================
+   ELVON LABS — TYPOGRAPHY TOKENS  (warm / friendly)
+   Bricolage Grotesque carries display & headings (approachable,
+   characterful, modern); Inter carries body & UI.
+   ============================================================ */
+
+:root {
+  /* ---- Families ---- */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Bricolage Grotesque', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', 'Menlo', 'Consolas', monospace;
+
+  /* ---- Weights ---- */
+  --fw-regular: 400; /* @kind font */
+  --fw-medium: 500; /* @kind font */
+  --fw-semibold: 600; /* @kind font */
+  --fw-bold: 700; /* @kind font */
+  --fw-extrabold: 800; /* @kind font */
+
+  /* ---- Type scale (rem) ---- */
+  --text-xs: 0.75rem;    /* 12px — eyebrow, tags */
+  --text-sm: 0.875rem;   /* 14px — caption, meta */
+  --text-base: 1rem;     /* 16px — body */
+  --text-lg: 1.125rem;   /* 18px — lead body */
+  --text-xl: 1.25rem;    /* 20px */
+  --text-2xl: 1.5rem;    /* 24px — card title */
+  --text-3xl: 1.875rem;  /* 30px — sub-heading */
+  --text-4xl: 2.5rem;    /* 40px — section heading */
+  --text-5xl: 3.25rem;   /* 52px — page heading */
+  --text-6xl: 4rem;      /* 64px — hero */
+  --text-7xl: 4.75rem;   /* 76px — hero lg */
+
+  /* ---- Line heights ---- */
+  --leading-none: 1;
+  --leading-tight: 1.08;  /* display */
+  --leading-snug: 1.25;
+  --leading-normal: 1.6;  /* body */
+  --leading-relaxed: 1.75;
+
+  /* ---- Tracking ---- */
+  --tracking-tight: -0.02em;  /* display */
+  --tracking-normal: 0;
+  --tracking-wide: 0.04em;    /* eyebrow */
+  --tracking-wider: 0.08em;   /* uppercase tags */
+
+  /* ============================================================
+     SEMANTIC ROLES
+     ============================================================ */
+  --type-hero: var(--fw-bold) var(--text-7xl)/var(--leading-tight) var(--font-display);
+  --type-display: var(--fw-bold) var(--text-5xl)/var(--leading-tight) var(--font-display);
+  --type-heading: var(--fw-bold) var(--text-4xl)/var(--leading-snug) var(--font-display);
+  --type-subheading: var(--fw-semibold) var(--text-2xl)/var(--leading-snug) var(--font-display);
+  --type-card-title: var(--fw-semibold) var(--text-xl)/var(--leading-snug) var(--font-display);
+  --type-lead: var(--fw-regular) var(--text-lg)/var(--leading-normal) var(--font-sans);
+  --type-body: var(--fw-regular) var(--text-base)/var(--leading-normal) var(--font-sans);
+  --type-caption: var(--fw-regular) var(--text-sm)/var(--leading-snug) var(--font-sans);
+  --type-eyebrow: var(--fw-semibold) var(--text-xs)/var(--leading-none) var(--font-sans);
+}

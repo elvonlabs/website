@@ -1,0 +1,39 @@
+/* ============================================================
+   ELVON LABS — EFFECTS TOKENS  (warm / friendly)
+   Soft, rounded, lifted. Generous radii, warm-tinted shadows,
+   playful hover lifts, quick friendly transitions.
+   ============================================================ */
+
+:root {
+  /* ---- Radii (rounder, friendlier) ---- */
+  --radius-sm: 0.625rem;  /* 10px — chips, small controls */
+  --radius-md: 1rem;      /* 16px — cards, inputs */
+  --radius-lg: 1.5rem;    /* 24px — feature cards, panels */
+  --radius-xl: 2rem;      /* 32px — hero media */
+  --radius-pill: 9999px;  /* buttons, tags, avatars */
+
+  /* ---- Shadows (warm-tinted, soft) ---- */
+  --shadow-sm: 0 1px 2px rgba(33, 28, 43, 0.06); /* @kind shadow */
+  --shadow-md: 0 8px 22px -8px rgba(33, 28, 43, 0.14); /* @kind shadow */
+  --shadow-lg: 0 20px 44px -14px rgba(33, 28, 43, 0.18); /* @kind shadow */
+  /* Default card shadow: subtle near layer + soft far layer */
+  --shadow-card: 0 1px 3px rgba(33, 28, 43, 0.05), 0 14px 30px -16px rgba(33, 28, 43, 0.16); /* @kind shadow */
+  /* Indigo-tinted glow for hovered primary CTAs */
+  --shadow-glow: 0 10px 28px -8px rgba(75, 61, 219, 0.42); /* @kind shadow */
+
+  /* ---- Focus ring ---- */
+  --ring-accent: 0 0 0 3px var(--indigo-300); /* @kind shadow */
+
+  /* ---- Blur ---- */
+  --blur-glow: 60px;
+
+  /* ---- Transitions ---- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1); /* @kind other */
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1); /* @kind other */
+  --dur-fast: 140ms; /* @kind other */
+  --dur-base: 240ms; /* @kind other */
+  --dur-slow: 480ms; /* @kind other */
+
+  --transition-base: all var(--dur-base) var(--ease-standard); /* @kind other */
+}

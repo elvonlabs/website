@@ -1,9 +1,7 @@
-/* Elvon Labs — website (warm mentorship landing page).
-   Built from the Elvon Labs Design System (warm cream / indigo / coral),
-   composed from the design-system primitives in _ds_bundle.js.
-   Loaded directly by index.html via Babel Standalone — no build step,
-   same zero-backend deploy pattern as the rest of this repo (GitHub Pages
-   serving from the `main` branch root). */
+/* Elvon Labs — website UI kit (warm mentorship landing page).
+   A friendly, student-facing recreation built from the launch-kit copy
+   and composed from the design-system primitives.
+   Registers window.ElvonSite and mounts into #root. */
 
 const DS = window.ElvonLabsDesignSystem_d7be89;
 const { NavBar, SectionHeading, Card, Tag, Button, Badge, StatCard, Logo, Icon,
@@ -11,12 +9,6 @@ const { NavBar, SectionHeading, Card, Tag, Button, Badge, StatCard, Logo, Icon,
 
 const SANS = "var(--font-sans)";
 const DISP = "var(--font-display)";
-
-// Web3Forms — same free, zero-backend submission endpoint used elsewhere on
-// this site. The access key is a public client-side identifier (like a GA
-// ID), not a secret.
-const APPLY_FORM_ENDPOINT = 'https://api.web3forms.com/submit';
-const APPLY_ACCESS_KEY = '9ad87ce9-4376-48d6-9870-ef26d557d078';
 
 function scrollToId(id) {
   const el = document.getElementById(id);
@@ -319,23 +311,8 @@ const INTERESTS = ['Artificial Intelligence', 'Healthcare', 'Foundational Comput
 
 function Apply() {
   const [areas, setAreas] = React.useState([]);
-  const [status, setStatus] = React.useState('idle'); // idle | submitting | success | error
+  const [sent, setSent] = React.useState(false);
   const toggle = (a) => setAreas((p) => p.includes(a) ? p.filter((x) => x !== a) : [...p, a]);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus('submitting');
-    try {
-      const res = await fetch(APPLY_FORM_ENDPOINT, {
-        method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: new FormData(e.target),
-      });
-      setStatus(res.ok ? 'success' : 'error');
-    } catch (err) {
-      setStatus('error');
-    }
-  };
 
   return (
     <Section id="apply" bg="var(--surface-ink)" style={{ paddingTop: 80, paddingBottom: 80 }}>
@@ -355,35 +332,26 @@ function Apply() {
           </ul>
         </div>
         <div style={{ background: 'var(--white)', borderRadius: 'var(--radius-lg)', padding: 30, boxShadow: 'var(--shadow-lg)' }}>
-          {status === 'success' ? (
+          {sent ? (
             <div style={{ textAlign: 'center', padding: '30px 10px' }}>
               <div style={{ width: 56, height: 56, borderRadius: '50%', background: 'var(--mint-100)', color: '#1c7a60', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 18px' }}><Icon name="check" size={28} /></div>
               <h3 style={{ fontFamily: DISP, fontSize: 24, fontWeight: 700, color: 'var(--ink-900)', margin: '0 0 8px' }}>Thanks — you're on the list.</h3>
               <p style={{ fontFamily: SANS, color: 'var(--text-muted)', margin: '0 0 18px' }}>We'll be in touch soon to find your starting point.</p>
-              <Button variant="soft" onClick={() => setStatus('idle')}>Submit another</Button>
+              <Button variant="soft" onClick={() => setSent(false)}>Submit another</Button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-              <input type="hidden" name="access_key" value={APPLY_ACCESS_KEY} />
-              <input type="hidden" name="subject" value="New application - Elvon Labs" />
-              <Input label="Full name" name="name" required placeholder="Vihaa W." />
-              <Input label="Email" name="email" type="email" required placeholder="you@example.com" />
-              <Select label="I'm a…" name="role" required placeholder="Select one" options={['High school student', 'Undergraduate', 'Industry professional / engineer', 'Parent / guardian', 'Other']} />
+            <form onSubmit={(e) => { e.preventDefault(); setSent(true); }} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+              <Input label="Full name" required placeholder="Vihaa W." />
+              <Input label="Email" type="email" required placeholder="you@example.com" />
+              <Select label="I'm a…" placeholder="Select one" options={['High school student', 'Undergraduate', 'Industry professional / engineer', 'Parent / guardian', 'Other']} />
               <div>
                 <div style={{ fontFamily: SANS, fontSize: 14, fontWeight: 600, color: 'var(--text-body)', marginBottom: 10 }}>What interests you?</div>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
-                  {INTERESTS.map((a) => <CheckboxCard key={a} name="interests" value={a} label={a} checked={areas.includes(a)} onChange={() => toggle(a)} />)}
+                  {INTERESTS.map((a) => <CheckboxCard key={a} label={a} checked={areas.includes(a)} onChange={() => toggle(a)} />)}
                 </div>
               </div>
-              <Textarea label="Anything else? (optional)" name="message" rows={3} placeholder="Background, papers, projects, what you'd want to work on..." />
-              {status === 'error' && (
-                <p style={{ fontFamily: SANS, fontSize: 13.5, color: 'var(--coral-600)', margin: 0 }}>
-                  Something went wrong submitting the form. Please try again.
-                </p>
-              )}
-              <Button type="submit" variant="primary" size="lg" full disabled={status === 'submitting'}>
-                {status === 'submitting' ? 'Submitting...' : 'Submit application'}
-              </Button>
+              <Textarea label="Anything else? (optional)" rows={3} placeholder="Background, papers, projects, what you'd want to work on..." />
+              <Button type="submit" variant="primary" size="lg" full>Submit application</Button>
               <p style={{ fontFamily: SANS, fontSize: 12.5, color: 'var(--text-faint)', textAlign: 'center', margin: 0 }}>Under 18? We'll loop in a parent or guardian for enrollment.</p>
             </form>
           )}

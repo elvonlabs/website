@@ -1,0 +1,25 @@
+<!-- @dsCard group="Colors" viewport="700x160" name="Accent Families" subtitle="Indigo primary, coral & sun accents" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; font-family: var(--font-sans); background: var(--surface-canvas); padding: 20px; }
+  .row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+  .sw { border-radius: var(--radius-sm); height: 64px; display: flex; flex-direction: column; justify-content: flex-end; padding: 8px; }
+  .name { font-size: 11px; font-weight: 700; }
+  .val { font-size: 9px; font-family: var(--font-mono); opacity: 0.8; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="sw" style="background: var(--indigo-700); color:#fff;"><span class="name">700</span><span class="val">#362aa6</span></div>
+    <div class="sw" style="background: var(--indigo-600); color:#fff;"><span class="name">600 · primary</span><span class="val">#4b3ddb</span></div>
+    <div class="sw" style="background: var(--indigo-100); color:var(--indigo-700);"><span class="name">100</span><span class="val">#ece8fc</span></div>
+    <div class="sw" style="background: var(--coral-500); color:#fff;"><span class="name">coral</span><span class="val">#ff6b57</span></div>
+    <div class="sw" style="background: var(--sun-400); color:#5b3d05;"><span class="name">sun</span><span class="val">#ffb23e</span></div>
+    <div class="sw" style="background: var(--mint-500); color:#fff;"><span class="name">mint</span><span class="val">#2fb592</span></div>
+  </div>
+</body>
+</html>
