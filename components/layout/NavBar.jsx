@@ -8,7 +8,7 @@ import { Icon } from '../core/Icon.jsx';
  * Below 760px the links collapse behind a hamburger toggle so they don't
  * overflow the header on phones.
  */
-export function NavBar({ items = ['Programs', 'Method', 'Founder', 'FAQ'], active, onNavigate, cta, style = {}, ...rest }) {
+export function NavBar({ items = ['Programs', 'Method', 'Mentors', 'FAQ'], active, onNavigate, cta, style = {}, ...rest }) {
   const [isMobile, setIsMobile] = React.useState(false);
   const [open, setOpen] = React.useState(false);
 

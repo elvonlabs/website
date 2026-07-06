@@ -257,11 +257,11 @@ function Method() {
   );
 }
 
-/* ---------------- Founder ---------------- */
-function Founder() {
+/* ---------------- Mentors ---------------- */
+function Mentors() {
   const isMobile = useIsMobile();
   return (
-    <Section id="founder" bg="var(--band-peach)">
+    <Section id="mentors" bg="var(--band-peach)">
       <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'minmax(0, 0.9fr) minmax(0, 1.4fr)', gap: 48, alignItems: 'center' }}>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 20 }}>
           <div style={{ width: 200, height: 200, borderRadius: '50%', background: 'linear-gradient(150deg, var(--indigo-500), var(--coral-500))', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-lg)' }}>
@@ -426,7 +426,7 @@ function SiteFooter() {
 
 /* ---------------- App ---------------- */
 function App() {
-  const nav = ["Who it's for", 'Programs', 'Method', 'Founder', 'FAQ'];
+  const nav = ["Who it's for", 'Programs', 'Method', 'Mentors', 'FAQ'];
   return (
     <div style={{ background: 'var(--surface-canvas)' }}>
       <NavBar items={nav} onNavigate={scrollToId}
@@ -437,7 +437,7 @@ function App() {
         <Differentiators />
         <Programs />
         <Method />
-        <Founder />
+        <Mentors />
         <Faq />
         <Apply />
       </main>

@@ -696,7 +696,7 @@ function _extends() { return _extends = Object.assign ? Object.assign.bind() : f
  * overflow the header on phones.
  */
 function NavBar({
-  items = ['Programs', 'Method', 'Founder', 'FAQ'],
+  items = ['Programs', 'Method', 'Mentors', 'FAQ'],
   active,
   onNavigate,
   cta,
@@ -1547,10 +1547,10 @@ function Method() {
   }, p.body)))));
 }
 
-/* ---------------- Founder ---------------- */
-function Founder() {
+/* ---------------- Mentors ---------------- */
+function Mentors() {
   return /*#__PURE__*/React.createElement(Section, {
-    id: "founder",
+    id: "mentors",
     bg: "var(--band-peach)"
   }, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -1979,7 +1979,7 @@ function SiteFooter() {
 
 /* ---------------- App ---------------- */
 function App() {
-  const nav = ["Who it's for", 'Programs', 'Method', 'Founder', 'FAQ'];
+  const nav = ["Who it's for", 'Programs', 'Method', 'Mentors', 'FAQ'];
   return /*#__PURE__*/React.createElement("div", {
     style: {
       background: 'var(--surface-canvas)'
@@ -1991,7 +1991,7 @@ function App() {
       size: "sm",
       onClick: () => scrollToId('apply')
     }, "Apply")
-  }), /*#__PURE__*/React.createElement("main", null, /*#__PURE__*/React.createElement(Hero, null), /*#__PURE__*/React.createElement(Audience, null), /*#__PURE__*/React.createElement(Differentiators, null), /*#__PURE__*/React.createElement(Programs, null), /*#__PURE__*/React.createElement(Method, null), /*#__PURE__*/React.createElement(Founder, null), /*#__PURE__*/React.createElement(Faq, null), /*#__PURE__*/React.createElement(Apply, null)), /*#__PURE__*/React.createElement(SiteFooter, null));
+  }), /*#__PURE__*/React.createElement("main", null, /*#__PURE__*/React.createElement(Hero, null), /*#__PURE__*/React.createElement(Audience, null), /*#__PURE__*/React.createElement(Differentiators, null), /*#__PURE__*/React.createElement(Programs, null), /*#__PURE__*/React.createElement(Method, null), /*#__PURE__*/React.createElement(Mentors, null), /*#__PURE__*/React.createElement(Faq, null), /*#__PURE__*/React.createElement(Apply, null)), /*#__PURE__*/React.createElement(SiteFooter, null));
 }
 window.ElvonSite = {
   App
