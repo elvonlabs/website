@@ -244,6 +244,14 @@ const PATHS = {
   arrow: {
     sw: 2,
     d: ['M13 7l5 5m0 0l-5 5m5-5H6']
+  },
+  menu: {
+    sw: 2,
+    d: ['M4 6h16M4 12h16M4 18h16']
+  },
+  close: {
+    sw: 2,
+    d: ['M6 6l12 12M6 18L18 6']
   }
 };
 function Icon({
@@ -684,6 +692,8 @@ function _extends() { return _extends = Object.assign ? Object.assign.bind() : f
 /**
  * Top navigation bar: a clean cream/white bar with the logo lockup,
  * nav links, and an optional CTA. Sticky, with a hairline bottom border.
+ * Below 760px the links collapse behind a hamburger toggle so they don't
+ * overflow the header on phones.
  */
 function NavBar({
   items = ['Programs', 'Method', 'Founder', 'FAQ'],
@@ -693,6 +703,100 @@ function NavBar({
   style = {},
   ...rest
 }) {
+  const [isMobile, setIsMobile] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
+  React.useEffect(() => {
+    const mq = window.matchMedia('(max-width: 760px)');
+    const sync = () => { setIsMobile(mq.matches); setOpen(false); };
+    sync();
+    mq.addEventListener('change', sync);
+    return () => mq.removeEventListener('change', sync);
+  }, []);
+  const go = id => { setOpen(false); onNavigate && onNavigate(id); };
+  const linkStyle = isActive => ({
+    fontFamily: 'var(--font-sans)',
+    fontSize: '15px',
+    fontWeight: 500,
+    textDecoration: 'none',
+    color: isActive ? 'var(--indigo-600)' : 'var(--text-body)',
+    transition: 'color 200ms ease'
+  });
+
+  const logo = /*#__PURE__*/React.createElement("a", {
+    href: "#home",
+    onClick: e => { e.preventDefault(); go('home'); },
+    style: { textDecoration: 'none' }
+  }, /*#__PURE__*/React.createElement(__ds_scope.Logo, { size: 21 }));
+
+  const toggleButton = /*#__PURE__*/React.createElement("button", {
+    onClick: () => setOpen(o => !o),
+    "aria-label": open ? 'Close menu' : 'Open menu',
+    "aria-expanded": open,
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: 40,
+      height: 40,
+      border: '1px solid var(--border-default)',
+      borderRadius: 'var(--radius-md)',
+      background: 'var(--white)',
+      color: 'var(--ink-900)',
+      cursor: 'pointer',
+      flexShrink: 0
+    }
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: open ? 'close' : 'menu',
+    size: 20
+  }));
+
+  const desktopLinks = items.map(item => {
+    const id = item.toLowerCase();
+    const isActive = active === id;
+    return /*#__PURE__*/React.createElement("a", {
+      key: item,
+      href: `#${id}`,
+      onClick: e => { e.preventDefault(); go(id); },
+      style: linkStyle(isActive),
+      onMouseEnter: e => { e.currentTarget.style.color = 'var(--indigo-600)'; },
+      onMouseLeave: e => { e.currentTarget.style.color = isActive ? 'var(--indigo-600)' : 'var(--text-body)'; }
+    }, item);
+  });
+
+  const desktopNav = /*#__PURE__*/React.createElement.apply(React, ["nav", {
+    style: { display: 'flex', alignItems: 'center', gap: '28px' }
+  }].concat(desktopLinks, [cta]));
+
+  const topRow = /*#__PURE__*/React.createElement("div", {
+    style: {
+      maxWidth: '1152px',
+      margin: '0 auto',
+      padding: '16px 24px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between'
+    }
+  }, logo, isMobile ? toggleButton : desktopNav);
+
+  const mobileLinks = items.map(item => {
+    const id = item.toLowerCase();
+    const isActive = active === id;
+    return /*#__PURE__*/React.createElement("a", {
+      key: item,
+      href: `#${id}`,
+      onClick: e => { e.preventDefault(); go(id); },
+      style: {
+        ...linkStyle(isActive),
+        padding: '10px 0',
+        borderTop: '1px solid var(--border-default)'
+      }
+    }, item);
+  });
+
+  const mobileMenu = isMobile && open ? /*#__PURE__*/React.createElement.apply(React, ["nav", {
+    style: { display: 'flex', flexDirection: 'column', gap: 4, padding: '4px 24px 20px' }
+  }].concat(mobileLinks, [cta ? /*#__PURE__*/React.createElement("div", { style: { marginTop: 12 } }, cta) : null])) : null;
+
   return /*#__PURE__*/React.createElement("header", _extends({
     style: {
       position: 'sticky',
@@ -704,58 +808,7 @@ function NavBar({
       borderBottom: '1px solid var(--border-default)',
       ...style
     }
-  }, rest), /*#__PURE__*/React.createElement("div", {
-    style: {
-      maxWidth: '1152px',
-      margin: '0 auto',
-      padding: '16px 24px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between'
-    }
-  }, /*#__PURE__*/React.createElement("a", {
-    href: "#home",
-    onClick: e => {
-      e.preventDefault();
-      onNavigate && onNavigate('home');
-    },
-    style: {
-      textDecoration: 'none'
-    }
-  }, /*#__PURE__*/React.createElement(__ds_scope.Logo, {
-    size: 21
-  })), /*#__PURE__*/React.createElement("nav", {
-    style: {
-      display: 'flex',
-      alignItems: 'center',
-      gap: '28px'
-    }
-  }, items.map(item => {
-    const id = item.toLowerCase();
-    const isActive = active === id;
-    return /*#__PURE__*/React.createElement("a", {
-      key: item,
-      href: `#${id}`,
-      onClick: e => {
-        e.preventDefault();
-        onNavigate && onNavigate(id);
-      },
-      style: {
-        fontFamily: 'var(--font-sans)',
-        fontSize: '15px',
-        fontWeight: 500,
-        textDecoration: 'none',
-        color: isActive ? 'var(--indigo-600)' : 'var(--text-body)',
-        transition: 'color 200ms ease'
-      },
-      onMouseEnter: e => {
-        e.currentTarget.style.color = 'var(--indigo-600)';
-      },
-      onMouseLeave: e => {
-        e.currentTarget.style.color = isActive ? 'var(--indigo-600)' : 'var(--text-body)';
-      }
-    }, item);
-  }), cta)));
+  }, rest), topRow, mobileMenu);
 }
 Object.assign(__ds_scope, { NavBar });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/layout/NavBar.jsx", error: String((e && e.message) || e) }); }

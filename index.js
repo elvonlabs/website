@@ -23,6 +23,18 @@ function scrollToId(id) {
   if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 72, behavior: 'smooth' });
 }
 
+function useIsMobile(bp = 760) {
+  const [isMobile, setIsMobile] = React.useState(false);
+  React.useEffect(() => {
+    const mq = window.matchMedia(`(max-width: ${bp}px)`);
+    const sync = () => setIsMobile(mq.matches);
+    sync();
+    mq.addEventListener('change', sync);
+    return () => mq.removeEventListener('change', sync);
+  }, [bp]);
+  return isMobile;
+}
+
 const Section = ({ id, bg, children, style }) => (
   <section id={id} style={{ background: bg || 'transparent', padding: '88px 24px', ...style }}>
     <div style={{ maxWidth: 1120, margin: '0 auto' }}>{children}</div>
@@ -247,9 +259,10 @@ function Method() {
 
 /* ---------------- Founder ---------------- */
 function Founder() {
+  const isMobile = useIsMobile();
   return (
     <Section id="founder" bg="var(--band-peach)">
-      <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 0.9fr) minmax(0, 1.4fr)', gap: 48, alignItems: 'center' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'minmax(0, 0.9fr) minmax(0, 1.4fr)', gap: 48, alignItems: 'center' }}>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 20 }}>
           <div style={{ width: 200, height: 200, borderRadius: '50%', background: 'linear-gradient(150deg, var(--indigo-500), var(--coral-500))', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-lg)' }}>
             <span style={{ fontFamily: DISP, fontSize: 64, fontWeight: 700, color: 'var(--white)' }}>VW</span>
@@ -318,6 +331,7 @@ function Faq() {
 const INTERESTS = ['Artificial Intelligence', 'Healthcare', 'Foundational Computer Science', 'Telecommunications', 'Quantum Computing', 'Robotics', 'Other'];
 
 function Apply() {
+  const isMobile = useIsMobile();
   const [areas, setAreas] = React.useState([]);
   const [status, setStatus] = React.useState('idle'); // idle | submitting | success | error
   const toggle = (a) => setAreas((p) => p.includes(a) ? p.filter((x) => x !== a) : [...p, a]);
@@ -339,7 +353,7 @@ function Apply() {
 
   return (
     <Section id="apply" bg="var(--surface-ink)" style={{ paddingTop: 80, paddingBottom: 80 }}>
-      <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1.1fr)', gap: 56, alignItems: 'center' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'minmax(0,1fr) minmax(0,1.1fr)', gap: 56, alignItems: 'center' }}>
         <div>
           <div style={{ fontFamily: SANS, fontSize: 13, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--coral-300)', marginBottom: 16 }}>Apply</div>
           <h2 style={{ fontFamily: DISP, fontSize: 44, fontWeight: 700, letterSpacing: '-0.02em', color: 'var(--white)', margin: '0 0 18px', lineHeight: 1.1 }}>Start your research journey</h2>

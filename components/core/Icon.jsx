@@ -15,6 +15,8 @@ const PATHS = {
   check: { sw: 2, d: ['M5 13l4 4L19 7'] },
   cube: { sw: 1.5, d: ['M12 2.5l-7 4v8l7 4 7-4v-8l-7-4z', 'M5 6.5l7 4 7-4', 'M12 21.5v-11', 'M12 2.5V1', 'M5 6.5L2 4.5', 'M19 6.5L22 4.5', 'M5 14.5L2 16.5', 'M19 14.5L22 16.5', 'M12 21.5V23'] },
   arrow: { sw: 2, d: ['M13 7l5 5m0 0l-5 5m5-5H6'] },
+  menu: { sw: 2, d: ['M4 6h16M4 12h16M4 18h16'] },
+  close: { sw: 2, d: ['M6 6l12 12M6 18L18 6'] },
 };
 
 export function Icon({ name = 'cube', size = 24, strokeWidth, className = '', style = {}, ...rest }) {
