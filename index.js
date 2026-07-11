@@ -23,6 +23,28 @@ function scrollToId(id) {
   if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 72, behavior: 'smooth' });
 }
 
+function getCurrentRoute() {
+  const pathname = window.location.pathname || '/';
+  const normalized = pathname.replace(/\/index\.html$/, '');
+  return normalized === '/careers' || normalized.startsWith('/careers/') ? 'careers' : 'home';
+}
+
+function navigateTo(path) {
+  if (window.location.pathname !== path) {
+    window.history.pushState({}, '', path);
+  }
+}
+
+function useRoute() {
+  const [route, setRoute] = React.useState(getCurrentRoute());
+  React.useEffect(() => {
+    const onPopState = () => setRoute(getCurrentRoute());
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, []);
+  return [route, setRoute];
+}
+
 function useIsMobile(bp = 760) {
   const [isMobile, setIsMobile] = React.useState(false);
   React.useEffect(() => {
@@ -407,17 +429,112 @@ function Apply() {
   );
 }
 
+/* ---------------- Careers ---------------- */
+const CAREER_ROLES = [
+  {
+    title: 'Marketing Intern',
+    intro: 'Help grow Elvon’s LinkedIn presence and tell the Elvon story to students, parents, and the research community.',
+    duties: [
+      'Draft and schedule LinkedIn posts',
+      'Grow and engage the audience through comments, DMs, and outreach',
+      'Create light content such as captions, simple graphics, and short-form copy',
+      'Track engagement and suggest improvements',
+    ],
+    requirements: [
+      'Strong writing and tone — direct, honest, and free of hype',
+      'Interest in marketing, communications, or growth; no experience required',
+      'Familiarity with LinkedIn',
+      'Self-starter with a clear point of view',
+    ],
+  },
+  {
+    title: 'Software Research Engineer Intern',
+    intro: 'Build the tools behind Elvon’s research mentorship — data pipelines, small internal apps, and experiments — working directly with the founder.',
+    duties: [
+      'Build and maintain internal tools and scripts',
+      'Prototype data pipelines and experiment infrastructure',
+      'Help reproduce and extend paper results under mentor guidance',
+      'Support code review, documentation, and testing',
+    ],
+    requirements: [
+      'Solid programming fundamentals; Python preferred',
+      'CS, AI, or ML coursework or self-directed projects',
+      'Comfort with ambiguity and iteration',
+      'Self-starter who can move from idea to execution',
+    ],
+  },
+];
+
+function CareersPage() {
+  return (
+    <div style={{ background: 'var(--surface-canvas)' }}>
+      <section style={{ background: 'linear-gradient(135deg, rgba(75,61,219,0.1), rgba(252,249,244,0.95))', padding: '88px 24px 64px' }}>
+        <div style={{ maxWidth: 960, margin: '0 auto' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'var(--white)', border: '1px solid var(--border-default)', borderRadius: 9999, padding: '6px 14px 6px 8px', boxShadow: 'var(--shadow-sm)', marginBottom: 24 }}>
+            <Badge tone="solid">Careers</Badge>
+            <span style={{ fontFamily: SANS, fontSize: 13, color: 'var(--text-muted)' }}>Small team · founder-led · remote-friendly</span>
+          </div>
+          <h1 style={{ fontFamily: DISP, fontSize: 'clamp(36px, 5vw, 56px)', fontWeight: 700, lineHeight: 1.08, letterSpacing: '-0.025em', color: 'var(--ink-900)', margin: '0 0 16px' }}>
+            Help us build honest research mentorship.
+          </h1>
+          <p style={{ fontFamily: SANS, fontSize: 18, lineHeight: 1.65, color: 'var(--text-muted)', margin: 0, maxWidth: 760 }}>
+            We’re a small founder-led team building a more direct and practical approach to research mentorship for students and working professionals.
+          </p>
+        </div>
+      </section>
+
+      <section style={{ padding: '24px 24px 80px' }}>
+        <div style={{ maxWidth: 1120, margin: '0 auto' }}>
+          <div style={{ display: 'grid', gap: 24, gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
+            {CAREER_ROLES.map((role) => (
+              <div key={role.title} style={{ background: 'var(--white)', border: '1px solid var(--border-default)', borderRadius: '24px', padding: '28px', boxShadow: 'var(--shadow-card)' }}>
+                <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 16 }}>
+                  <Tag variant="indigo">Unpaid</Tag>
+                  <Tag variant="mint">Remote</Tag>
+                  <Tag variant="sun">Part-time</Tag>
+                </div>
+                <h2 style={{ fontFamily: DISP, fontSize: 24, fontWeight: 700, color: 'var(--ink-900)', margin: '0 0 12px' }}>{role.title}</h2>
+                <p style={{ fontFamily: SANS, fontSize: 15.5, lineHeight: 1.65, color: 'var(--text-muted)', margin: '0 0 18px' }}>{role.intro}</p>
+                <div style={{ marginBottom: 18 }}>
+                  <h3 style={{ fontFamily: SANS, fontSize: 13, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--indigo-600)', margin: '0 0 10px' }}>What you’ll do</h3>
+                  <ul style={{ margin: 0, paddingLeft: 18, display: 'flex', flexDirection: 'column', gap: 8, color: 'var(--text-body)', fontFamily: SANS, fontSize: 14.5, lineHeight: 1.5 }}>
+                    {role.duties.map((item) => <li key={item}>{item}</li>)}
+                  </ul>
+                </div>
+                <div style={{ marginBottom: 22 }}>
+                  <h3 style={{ fontFamily: SANS, fontSize: 13, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--indigo-600)', margin: '0 0 10px' }}>What we’re looking for</h3>
+                  <ul style={{ margin: 0, paddingLeft: 18, display: 'flex', flexDirection: 'column', gap: 8, color: 'var(--text-body)', fontFamily: SANS, fontSize: 14.5, lineHeight: 1.5 }}>
+                    {role.requirements.map((item) => <li key={item}>{item}</li>)}
+                  </ul>
+                </div>
+                <a
+                  href={`mailto:hello@elvonlabs.com?subject=${encodeURIComponent(`${role.title} Application`)}`}
+                  style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', borderRadius: '999px', padding: '12px 18px', background: 'var(--indigo-600)', color: 'var(--white)', textDecoration: 'none', fontFamily: SANS, fontSize: 14, fontWeight: 600 }}
+                >
+                  Apply
+                </a>
+              </div>
+            ))}
+          </div>
+          <p style={{ fontFamily: SANS, fontSize: 15, lineHeight: 1.7, color: 'var(--text-muted)', marginTop: 28 }}>
+            To apply, email <a href="mailto:hello@elvonlabs.com" style={{ color: 'var(--indigo-600)', textDecoration: 'none' }}>hello@elvonlabs.com</a> with the role in the subject line.
+          </p>
+        </div>
+      </section>
+    </div>
+  );
+}
+
 /* ---------------- Footer ---------------- */
-function SiteFooter() {
+function SiteFooter({ onNavigate }) {
   return (
     <footer id="contact" style={{ background: 'var(--surface-ink)', borderTop: '1px solid rgba(255,255,255,0.08)', padding: '40px 24px' }}>
       <div style={{ maxWidth: 1120, margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 24, flexWrap: 'wrap' }}>
         <Logo size={22} color="var(--white)" />
         <p style={{ fontFamily: SANS, color: '#9a93a8', fontSize: 13, margin: 0 }}>© {new Date().getFullYear()} Elvon Labs · Every student is the true author of their own work.</p>
-        <div style={{ display: 'flex', gap: 20 }}>
-          {['Standards', 'Scholar', 'Contact'].map((l) => (
-            <a key={l} href="#" onClick={(e) => e.preventDefault()} style={{ fontFamily: SANS, color: '#c9c2d6', fontSize: 14, textDecoration: 'none' }}>{l}</a>
-          ))}
+        <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap' }}>
+          <a href="/careers" onClick={(e) => { e.preventDefault(); onNavigate && onNavigate('careers'); }} style={{ fontFamily: SANS, color: '#c9c2d6', fontSize: 14, textDecoration: 'none' }}>Careers</a>
+          <a href="mailto:hello@elvonlabs.com" style={{ fontFamily: SANS, color: '#c9c2d6', fontSize: 14, textDecoration: 'none' }}>hello@elvonlabs.com</a>
         </div>
       </div>
     </footer>
@@ -426,22 +543,51 @@ function SiteFooter() {
 
 /* ---------------- App ---------------- */
 function App() {
-  const nav = ["Who it's for", 'Programs', 'Method', 'Mentors', 'FAQ'];
+  const [route, setRoute] = useRoute();
+  const nav = route === 'home' ? ["Who it's for", 'Programs', 'Method', 'Mentors', 'FAQ', 'Careers'] : ['Home', 'Careers'];
+
+  const handleNavigate = (id) => {
+    if (id === 'careers') {
+      navigateTo('/careers');
+      setRoute('careers');
+      return;
+    }
+    if (id === 'home') {
+      navigateTo('/');
+      setRoute('home');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    if (route !== 'home') {
+      navigateTo('/');
+      setRoute('home');
+      window.setTimeout(() => scrollToId(id), 0);
+      return;
+    }
+    scrollToId(id);
+  };
+
   return (
     <div style={{ background: 'var(--surface-canvas)' }}>
-      <NavBar items={nav} onNavigate={scrollToId}
-        cta={<Button size="sm" onClick={() => scrollToId('apply')}>Apply</Button>} />
+      <NavBar items={nav} active={route === 'home' ? '' : 'careers'} onNavigate={handleNavigate}
+        cta={<Button size="sm" onClick={() => handleNavigate(route === 'home' ? 'apply' : 'home')}>{route === 'home' ? 'Apply' : 'Back home'}</Button>} />
       <main>
-        <Hero />
-        <Audience />
-        <Differentiators />
-        <Programs />
-        <Method />
-        <Mentors />
-        <Faq />
-        <Apply />
+        {route === 'careers' ? (
+          <CareersPage />
+        ) : (
+          <>
+            <Hero />
+            <Audience />
+            <Differentiators />
+            <Programs />
+            <Method />
+            <Mentors />
+            <Faq />
+            <Apply />
+          </>
+        )}
       </main>
-      <SiteFooter />
+      <SiteFooter onNavigate={handleNavigate} />
     </div>
   );
 }
